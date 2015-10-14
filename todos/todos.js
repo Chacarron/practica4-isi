@@ -19,7 +19,7 @@ Router.route('/list/:_id', {
     var currentList = this.params._id;
     var currentUser = Meteor.userId();
     return Lists.findOne({_id: currentList,
-    			  createdBy: currentUser});
+    			   createdBy: currentUser});
   },
   subscriptions: function(){
   	var currentList = this.params._id;
