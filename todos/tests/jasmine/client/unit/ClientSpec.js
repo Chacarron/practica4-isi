@@ -31,3 +31,13 @@ describe('createNewList', function () {
       expect(Lists.insert.calls.argsFor(0)).toEqual([]);
     });
   });
+
+  describe('totalTodos', function () {
+    it('Devuelve la lista de players', function () {
+      
+      var currentList = 1;
+      spyOn(Todos, 'find');
+
+      expect(Todos.find.calls.argsFor(0)).toEqual([]);
+    });
+  });
