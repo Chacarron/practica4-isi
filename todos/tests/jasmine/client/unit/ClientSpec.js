@@ -24,7 +24,7 @@ describe('createNewList', function () {
     it('Debe crear una nueva lista' , function () {
       var currentUser = 1;
       var listName = "name";
-      var result = {name: listName,ceatedBy: currentUser};
+      var result = {name: listName,createdBy: currentUser};
       spyOn(Lists, 'insert').and.returnValue(result);
 
       //expect(Meteor.call('createNewList')).toBe(result);
@@ -35,9 +35,21 @@ describe('createNewList', function () {
   describe('totalTodos', function () {
     it('Devuelve la lista de players', function () {
       
-      var currentList = 1;
-      spyOn(Todos, 'find');
+      var contador = 1;
+      spyOn(Todos, 'find').and.returnValue(contador);
+      expect(Todos.find()).toBe(contador);
+    });
+  });
 
-      expect(Todos.find.calls.argsFor(0)).toEqual([]);
+
+  describe('list', function () {
+    it('Devuelve la lista', function () {
+      var nombre = "godmode"
+      var currentUserId = null;
+      var result = {name: nombre,createdBy:currentUserId};
+      
+      spyOn(Lists, 'find').and.returnValue(result);
+
+      expect(Lists.find()).toBe(result);
     });
   });
