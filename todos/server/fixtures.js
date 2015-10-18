@@ -4,9 +4,10 @@ if (process.env.IS_MIRROR) {
 	    console.log('Loading default fixtures');
 	    // TODO: add your fixtures here
 	    Accounts.createUser({
-		email: 'pepe@gmail.com',
-		password: 'mipassword'
+		email: 'godmode@gmail.com',
+		password: 'godmode'
 	    });
+	    
 	    console.log('Finished loading default fixtures');
 	},
 	'clearDB': function(){
