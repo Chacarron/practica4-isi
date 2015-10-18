@@ -11,7 +11,15 @@ describe("Testing Login & Logout(1)", function () {
     	expect(Meteor.users.find().count()).toBe(1);
 
     });
-  
+
+    it("se cierra sesión al hacer logout", function(){
+	expect($("#HacerLogout").length).toBe(1);
+    });
+
+    it("add list", function(){
+        expect($("#adios").length).toBe(1);
+    });
+   
     it("Should be Visible 'Logout'", function () {
 
     	expect($(".logout").is(":visible")).toBe(true);
