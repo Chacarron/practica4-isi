@@ -280,7 +280,7 @@ if (Meteor.isClient){
   Template.register.onRendered(function(){
   	var validator = $('.register').validate({
   		submitHandler: function(){
-  			var email = $('[name=email]').val();
+  		var email = $('[name=email]').val();
         	var password = $('[name=password]').val();
         	Accounts.createUser({
             	email: email,
