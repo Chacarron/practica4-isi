@@ -1,28 +1,25 @@
 describe("Testing Login & Logout(1)", function () {
     
-    beforeEach(function(done){
-        Meteor.loginWithPassword("godmode@gmail.com", "godmode", function(err){
-            Tracker.afterFlush(done);
-        });
-    });
-    
     it("Should be 1 logged user", function () {
+	var email = "godmode@gmail.com"
+	var pass = "godmode"
+	$("#emailRegister").val(email);
+	$("#passwordRegister").val(pass);
+	$("#reg").submit();
 
-    	expect(Meteor.users.find().count()).toBe(1);
+	setTimeout(function (done) {
+      		expect(Meteor.users.find().count()).toBe(1);
+      	done();
+    	},500);
 
-    });
-
-    it("se cierra sesión al hacer logout", function(){
-	expect($("#HacerLogout").length).toBe(1);
-    });
-
-    it("add list", function(){
-        expect($("#adios").length).toBe(1);
     });
    
     it("Should be Visible 'Logout'", function () {
 
-    	expect($(".logout").is(":visible")).toBe(true);
+	setTimeout(function (done) {
+      		expect($("#HacerLogout").is(":visible")).toBe(true);
+      		done();
+    	},500);
 
     });
 
@@ -30,15 +27,9 @@ describe("Testing Login & Logout(1)", function () {
 
 describe("Testing Login & Logout(2)", function () {
 
-    beforeEach(function(done){
-        Meteor.logout(function() {
-            Tracker.afterFlush(done);
-        });
-    });
-
     it("Should not be Visible 'Logout' ", function () {
 
-    	expect($(".logout").is(":visible")).toBe(false);
+    	expect($("#HacerLogout").is(":visible")).toBe(false);
 
     });	
 
