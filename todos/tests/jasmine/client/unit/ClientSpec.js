@@ -7,8 +7,8 @@
 
         expect(Lists.find()).toBe(result);
         setTimeout(function(done){
-	    expect(Lists.find.calls.argsFor(0)).toEqual([{createdBy: currentUser}]);
-	    done();
+    	    expect(Lists.find.calls.argsFor(0)).toEqual([{createdBy: currentUser}]);
+    	    done();
         },500);
       });
     });
@@ -34,9 +34,9 @@
         spyOn(Lists, 'find').and.returnValue(result);
 
         expect(Lists.find()).toBe(result);
- 	setTimeout(function(done){
-	    expect(Lists.find.calls.argsFor(0)).toEqual([{name: nombre,createdBy:currentUserId}]);
-	    done();
+      	setTimeout(function(done){
+	        expect(Lists.find.calls.argsFor(0)).toEqual([{name: nombre,createdBy:currentUserId}]);
+	         done();
         },500);
       });
     });
@@ -50,10 +50,24 @@
 
         expect(Todos.find()).toBe(result)
         setTimeout(function(done){
-	    expect(Lists.find.calls.argsFor(0)).toEqual([{listId: currentList,completed: true}]);
-	    done();
+          expect(Lists.find.calls.argsFor(0)).toEqual([{listId: currentList,completed: true}]);
+          done();
         },500);
       
+      });
+    });
+
+    describe ('click delete',function(){
+      it ('click .delete-todo',function(){
+        event.preventDefault();
+        var documentId = 1;
+        var result = ('removeListItem', documentId);
+        spyOn(Meteor, 'call').and.returnValue(result);
+
+        setTimeout(function(done){
+          expect(Meteor.call()).toBe(result);
+          done();
+        },500);
       });
     });
 

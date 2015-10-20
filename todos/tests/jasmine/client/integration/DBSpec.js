@@ -43,7 +43,7 @@ describe("Database Test2", function () {
     $("#passwordRegister").val(contrasena);
     $("#reg").submit();
 
-    setTimeout(function () {
+    setTimeout(function (done) {
       expect(Todos.findOne({name: nombre, 
                             createdBy: userId})).toBe(true);
       done();
