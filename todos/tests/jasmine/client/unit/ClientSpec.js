@@ -1,5 +1,3 @@
-describe('Lists', function () {
-  'use strict';
 
   describe('lists', function () {
       it('Debe devolver la lista dado un usuario' , function () {
@@ -58,7 +56,7 @@ describe('Lists', function () {
       
       });
     });
-});
+
 
 
 
