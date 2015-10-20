@@ -50,4 +50,13 @@ describe("Database Test2", function () {
     },100);
   });
 
+  it("Meter un Task", function () {
+    var tarea = "cocinar";
+    var userId = Meteor.userId();
+
+    $("#putName").val(tarea);
+    $("#putName").submit();
+    expect($("[name=todoName]")).toBe(tarea);
+  });
+
 });
