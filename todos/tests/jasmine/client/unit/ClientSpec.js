@@ -46,7 +46,9 @@ describe('Lists', function () {
         spyOn(Todos, 'find').and.returnValue(result);
 
         expect(Todos.find()).toBe(result)
-        //expect(Todos.find.calls.argsFor(0)).toEqual([listId: currentList,completed: true]);
+        setTimeout(function(){
+	    expect(Lists.find.calls.argsFor(0)).toEqual([{listId: currentList,completed: true}]);
+        },500);
       
       });
     });
