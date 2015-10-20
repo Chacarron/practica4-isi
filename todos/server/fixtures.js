@@ -3,16 +3,17 @@ if (process.env.IS_MIRROR) {
 	'loadFixtures': function(){
 	    console.log('Loading default fixtures');
 	    // TODO: add your fixtures here
-            var names = ["comer",
-                         "beber",
-                         "acostarse"];
-	    for (var i = 0; i < names.length; i++) {
-	      Lists.insert({name: names[i]});
-	    }
+            
 	    Accounts.createUser({
 		email: 'godmode@gmail.com',
 		password: 'godmode'
 	    });
+
+	    var idGod = Accounts.findUserByEmail("godmode@gmail.com")._id;
+	    Lists.insert({name: "godmode", createdBy: idGod});
+	    var idList = Lists.find({name: "godmode"})._id;
+	    Todos.insert({name: "comer", completed: false, createdAt: new Date(), createdBy: idGod, listId: idList});
+	    Todos.insert({name: "BeGod", completed: false, createdAt: new Date(), createdBy: idGod, listId: idList});
 	    
 	    console.log('Finished loading default fixtures');
 	},
