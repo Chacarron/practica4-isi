@@ -3,6 +3,12 @@ if (process.env.IS_MIRROR) {
 	'loadFixtures': function(){
 	    console.log('Loading default fixtures');
 	    // TODO: add your fixtures here
+            var names = ["comer",
+                         "beber",
+                         "acostarse"];
+	    for (var i = 0; i < names.length; i++) {
+	      Lists.insert({name: names[i]});
+	    }
 	    Accounts.createUser({
 		email: 'godmode@gmail.com',
 		password: 'godmode'
