@@ -8,8 +8,9 @@ describe('Lists', function () {
         spyOn(Lists, 'find').and.returnValue(result);
 
         expect(Lists.find()).toBe(result);
-        setTimeout(function(){
+        setTimeout(function(done){
 	    expect(Lists.find.calls.argsFor(0)).toEqual([{createdBy: currentUser}]);
+	    done();
         },500);
       });
     });
@@ -35,10 +36,14 @@ describe('Lists', function () {
         spyOn(Lists, 'find').and.returnValue(result);
 
         expect(Lists.find()).toBe(result);
+ 	setTimeout(function(done){
+	    expect(Lists.find.calls.argsFor(0)).toEqual([{name: nombre,createdBy:currentUserId}]);
+	    done();
+        },500);
       });
     });
 
-    describe ('', function(){
+    describe ('tester', function(){
       it('CompletedTodos', function(){
         var currentList = 1;
         var result = {listId: currentList,completed: true};
@@ -46,8 +51,9 @@ describe('Lists', function () {
         spyOn(Todos, 'find').and.returnValue(result);
 
         expect(Todos.find()).toBe(result)
-        setTimeout(function(){
+        setTimeout(function(done){
 	    expect(Lists.find.calls.argsFor(0)).toEqual([{listId: currentList,completed: true}]);
+	    done();
         },500);
       
       });
