@@ -8,7 +8,9 @@ describe('Lists', function () {
         spyOn(Lists, 'find').and.returnValue(result);
 
         expect(Lists.find()).toBe(result);
-        expect(Lists.find.calls.argsFor(0)).toEqual([]);
+        setTimeout(function(){
+	    expect(Lists.find.calls.argsFor(0)).toEqual([{createdBy: currentUser}]);
+        },500);
       });
     });
 
